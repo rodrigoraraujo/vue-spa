@@ -1,0 +1,34 @@
+{
+  "psi-header.config": {
+    "forceToTop": true,
+    "blankLinesAfter": 1,
+    "license": "Custom"
+  },
+  "psi-header.variables": [
+    [
+      "company",
+      "PRODAM"
+    ],
+    [
+      "author",
+      "Rodrigo Ramalho Araujo"
+    ],
+    [
+      "authoremail",
+      "ramalhoa@prodam.sp.gov.br"
+    ]
+  ],
+  "psi-header.templates": [
+    {
+      "language": "*",
+      "template": [
+        "File: <<filepath>>",
+        "Project: <<projectpath>>",
+        "Created Date: <<filecreated('DD/MM/YYYY')>>",
+        "Author: <<author>>",
+        "Copyright (c) <<year>> <<company>>"
+      ],
+      "changeLogCaption": "HISTORY:"
+    },
+  ]
+}
