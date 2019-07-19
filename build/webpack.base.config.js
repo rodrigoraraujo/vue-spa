@@ -7,6 +7,7 @@
  */
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   mode: 'none',
@@ -30,20 +31,21 @@ const config = {
         test: /(\.css$)|(\.scss$)/,
         oneOf: [
           {
-            resourceQuery: /module/,
             use: [
-              'vue-style-loader',
               {
-                loader: 'css-loader',
+                loader: MiniCssExtractPlugin.loader,
                 options: {
-                  modules: true,
-                  localIdentName: '[local]_[hash:base64:5]'
+                  publicPath: (resourcePath, context) => {
+                    return (
+                      path.relative(path.dirname(resourcePath), context) + '/'
+                    );
+                  }
                 }
-              }
+              },
+              //'vue-style-loader',
+              'css-loader',
+              'sass-loader'
             ]
-          },
-          {
-            use: ['vue-style-loader', 'css-loader', 'sass-loader']
           }
         ]
       }
@@ -54,7 +56,13 @@ const config = {
       // }
     ]
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'assets/css/[name].css',
+      chunkFilename: '[id].css'
+    })
+  ],
   // We don't need to compile our templates on the fly anymore
   // resolve: {
   //   alias: {
