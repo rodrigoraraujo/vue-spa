@@ -59,6 +59,31 @@ module.exports = {
           allowFirstLine: false
         }
       }
+    ],
+    'vue/order-in-components': [
+      'warn',
+      {
+        order: [
+          'el',
+          'name',
+          'parent',
+          'functional',
+          ['delimiters', 'comments'],
+          ['components', 'directives', 'filters'],
+          'extends',
+          'mixins',
+          'inheritAttrs',
+          'model',
+          ['props', 'propsData'],
+          'data',
+          'computed',
+          'watch',
+          'LIFECYCLE_HOOKS',
+          'methods',
+          ['template', 'render'],
+          'renderError'
+        ]
+      }
     ]
   }
 };

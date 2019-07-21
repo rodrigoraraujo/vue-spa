@@ -14,7 +14,8 @@
   "dependencies": {
     "bulma": "^0.7.5",
     "express": "^4.17.1",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
