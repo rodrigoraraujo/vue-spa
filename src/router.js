@@ -4,7 +4,7 @@ import Category from './theme/AppCategory.vue';
 import Login from './theme/Login.vue';
 import NotFound from './theme/NotFound.vue';
 
-//  *** Lazying load reference ***
+//  *** Lazing load reference ***
 // const Category = () => import('./theme/AppCategory.vue');
 // const Login = () => import('./theme/Login.vue');
 // const NotFound = () => import('./theme/NotFound.vue');

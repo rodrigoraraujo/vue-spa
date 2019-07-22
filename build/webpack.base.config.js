@@ -11,7 +11,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   mode: 'none',
-
+  devtool: 'source-map',
   entry: {
     app: path.resolve(__dirname, '../src/client-entry.js')
   },
