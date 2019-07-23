@@ -77,7 +77,8 @@ export default {
   data() {
     return {
       username: '',
-      password: ''
+      password: '',
+      isLoading: false
     };
   },
   computed: {
@@ -86,6 +87,15 @@ export default {
   methods: {
     ...mapActions(['logout']),
     login() {
+      let loader = this.$loading.show({
+        loader: 'bars',
+        width: 64,
+        height: 64,
+        color: '#42a5f5',
+        backgroundColor: '#fff',
+        canCancel: false
+      });
+      this.isLoading = true;
       this.$store
         .dispatch('login', {
           username: this.username,
@@ -97,6 +107,9 @@ export default {
         })
         .catch(() => {
           window.alert('User or password is wrong');
+        })
+        .finally(() => {
+          loader.hide();
         });
     }
   }
