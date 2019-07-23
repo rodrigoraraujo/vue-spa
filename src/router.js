@@ -42,4 +42,10 @@ const router = new VueRouter({
   ]
 });
 
+router.beforeResolve((to, from, next) => {
+  next();
+});
+
+router.afterEach(() => {});
+
 export default router;

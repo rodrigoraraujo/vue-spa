@@ -3,6 +3,8 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://api.fullstackweekly.com';
 
 axios.interceptors.request.use(config => {
+  config.headers = { Accept: 'application/json' };
+
   if (typeof window === 'undefined') {
     return config;
   }
