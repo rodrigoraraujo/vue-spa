@@ -31,10 +31,32 @@
             class="navbar-item is-tab"
             to="/login"
           >
-            Login
+            <span v-if="isAuthenticated">Logout</span><span v-else>Login</span>
           </router-link>
         </div>
       </div>
     </nav>
   </div>
 </template>
+
+<script>
+import eventBus from '../event-bus';
+
+export default {
+  data() {
+    return {
+      isAuthenticated: false
+    };
+  },
+  created() {
+    eventBus.$on('authStatusUpdate', isAuthenticated => {
+      this.isAuthenticated = isAuthenticated;
+    });
+  }
+};
+</script>
+
+<style>
+</style>
+
+
