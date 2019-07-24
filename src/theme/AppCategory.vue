@@ -40,11 +40,20 @@ export default {
     this.loadPosts();
   },
   methods: {
-    loadPosts() {
+    async loadPosts() {
+      // let loader = this.$loading.show({
+      //   loader: 'bars',
+      //   width: 64,
+      //   height: 64,
+      //   color: '#42a5f5',
+      //   backgroundColor: '#fff',
+      //   canCancel: false
+      // });
+
       let categoryId = 2;
       if (this.$route.params.id === 'mobile') categoryId = 11;
-
-      this.$store.dispatch('postsModule/updateCategory', categoryId);
+      await this.$store.dispatch('postsModule/updateCategory', categoryId);
+      // loader.hide();
     }
   }
 };
